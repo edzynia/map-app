@@ -22,16 +22,24 @@ const Home = () => {
   const isFormEmpty = start.trim() === '' || destination.trim() === '';
 
   return (
-    <div>
-      <h1>React App</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='container'>
+      <div className='text-container'>
+        <h1>Maps Application</h1>
+        <p>
+          To view the route between two locations, please enter the starting
+          point and destination in the input fields below. You can enter either
+          street names or city names.
+        </p>
+        <p>Get ready to explore the route!</p>
+      </div>
+      <form className='form' onSubmit={handleSubmit}>
         <label>
-          From City:
+          Start:
           <input type='text' value={start} onChange={handleInputStart} />
         </label>
         <br />
         <label>
-          To City:
+          Destination:
           <input
             type='text'
             value={destination}
@@ -40,7 +48,11 @@ const Home = () => {
         </label>
         <br />
         <Link to='/map'>
-          <button type='submit' disabled={isFormEmpty}>
+          <button
+            className={`button ${isFormEmpty ? 'disabled' : ''}`}
+            type='submit'
+            disabled={isFormEmpty}
+          >
             See marker
           </button>
         </Link>
