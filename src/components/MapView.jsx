@@ -33,12 +33,20 @@ const MapView = () => {
   };
   return (
     <div>
-      <div onClick={handleClick}>
-        <Link to='/'>Go Home</Link>
+      <div className='text-position'>
+        <button className='button' type='button' onClick={handleClick}>
+          <Link to='/' style={{ color: 'white' }}>
+            Go Home
+          </Link>
+        </button>
+        <p>
+          From the Point: <span class='bold'>{start}</span>
+        </p>
+        <p>
+          To the Point: <span class='bold'>{destination}</span>
+        </p>{' '}
       </div>
-      <p>From City: {start}</p>
-      <p>Destination City: {destination}</p>
-      <MapContainer center={position} zoom={5} style={{ height: '100vh' }}>
+      <MapContainer center={position} zoom={15} style={{ height: '100vh' }}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
