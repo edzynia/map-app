@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setStart, setDestination } from '../redux/store';
+import { setStart, setDestination } from '../redux/actions';
 
 const Home = () => {
   const dispatch = useDispatch();

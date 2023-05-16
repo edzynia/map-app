@@ -5,7 +5,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import useFetchRouteCoordinates from '../hooks/useFetchRouteCoordinates';
-import { setSubmitted } from '../redux/store';
+import { setSubmitted } from '../redux/actions';
 
 import Polyline from './Polyline';
 
