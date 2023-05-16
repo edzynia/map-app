@@ -1,11 +1,14 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import Polyline from './Polyline';
-import useFetchRouteCoordinates from '../hooks/useFetchRouteCoordinates';
 
-import { setSubmitted } from '../store';
+import useFetchRouteCoordinates from '../hooks/useFetchRouteCoordinates';
+import { setSubmitted } from '../redux/store';
+
+import Polyline from './Polyline';
+
 const apiKey = '5b3ce3597851110001cf6248e9430bdfd2f841f285038ec9f6176644';
 
 const MapView = () => {
@@ -13,10 +16,15 @@ const MapView = () => {
   const { start, destination } = useSelector((state) => state);
   const routeCoordinates = useFetchRouteCoordinates(start, destination, apiKey);
 
-  const polylinePositions =
-    routeCoordinates && routeCoordinates.length > 0
-      ? routeCoordinates.map((coordinate) => [coordinate[1], coordinate[0]])
-      : [];
+  const polylinePositions = useMemo(() => {
+    if (routeCoordinates && routeCoordinates.length > 0) {
+      return routeCoordinates.map((coordinate) => [
+        coordinate[1],
+        coordinate[0],
+      ]);
+    }
+    return [];
+  }, [routeCoordinates]);
 
   const position = [52.5170365, 13.3888599];
 
