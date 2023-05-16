@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getCityCoordinates = async (cityName) => {
+export const getCityCoordinates = async (cityName, url) => {
   try {
     const encodedCityName = encodeURIComponent(cityName);
     const response = await axios.get(
@@ -17,4 +17,28 @@ export const getCityCoordinates = async (cityName) => {
   }
 
   return null;
+};
+
+export const fetchData = async (apiKey, start, end) => {
+  const url = `https://api.openrouteservice.org/v2/directions/driving-car`;
+
+  const params = {
+    api_key: apiKey,
+    start: start,
+    end: end,
+  };
+
+  try {
+    const response = await axios.get(url, { params });
+    const data = response.data;
+    console.log('Received data:', data);
+
+    // Extract the coordinates from the response
+    const routeCoordinates = data.features[0].geometry.coordinates;
+
+    return routeCoordinates;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
 };
