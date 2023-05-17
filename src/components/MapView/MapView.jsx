@@ -10,6 +10,7 @@ import { setSubmitted } from '../../redux/actions';
 import Polyline from '../Polyline/Polyline';
 
 const apiKey = process.env.REACT_APP_API_KEY;
+
 const MapView = () => {
   const dispatch = useDispatch();
   const { start, destination } = useSelector((state) => state.coordinates);
