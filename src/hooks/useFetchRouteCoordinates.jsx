@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchCityData, fetchRouteCoordinates } from '../helpers/fechData';
+import { fetchCityData, fetchRouteCoordinates } from '../helpers/fetchData';
 
 const useFetchRouteCoordinates = (start, destination, apiKey) => {
   const [routeCoordinates, setRouteCoordinates] = useState([]);

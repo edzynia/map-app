@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { URL_CONVERT, URL_CORDS } from './constants';
 
-const getCityCoordinates = async (cityName) => {
+export const getCityCoordinates = async (cityName) => {
   try {
     const encodedCityName = encodeURIComponent(cityName);
     const response = await axios.get(URL_CONVERT(encodedCityName));
@@ -10,6 +10,7 @@ const getCityCoordinates = async (cityName) => {
 
     if (Array.isArray(data) && data.length > 0) {
       const { lat, lon } = data[0];
+
       return {
         latitude: parseFloat(lat),
         longitude: parseFloat(lon),

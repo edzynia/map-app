@@ -2,8 +2,8 @@ import { useRoutes } from 'react-router-dom';
 
 import './App.css';
 
-import Home from './components/Home';
-import MapView from './components/MapView';
+import Home from '../Home/Home';
+import MapView from '../MapView/MapView';
 
 const App = () => {
   let element = useRoutes([

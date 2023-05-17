@@ -1,4 +1,8 @@
-import { createStore } from 'redux';
-import { coordinates } from './reduser';
+import { createStore, combineReducers } from 'redux';
+import { coordinates } from './reducer';
 
-export const store = createStore(coordinates);
+export const rootReducer = combineReducers({
+  coordinates: coordinates,
+});
+
+export const store = createStore(rootReducer);

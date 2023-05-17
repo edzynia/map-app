@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setStart, setDestination } from '../redux/actions';
+import { setStart, setDestination } from '../../redux/actions';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { start, destination } = useSelector((state) => state);
+  const { start, destination } = useSelector((state) => state.coordinates);
+  console.log(start);
 
   const handleInputStart = (event) => {
     dispatch(setStart(event.target.value));
