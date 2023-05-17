@@ -1,6 +1,6 @@
 # Map App
 
-##### https://map-app-omega.vercel.app/
+##### https://map-app-efni.vercel.app/
 
 ## Get started
 
