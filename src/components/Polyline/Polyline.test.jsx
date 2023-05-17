@@ -27,7 +27,7 @@ describe('Polyline component', () => {
       [0, 0],
       [1, 1],
       [2, 2],
-    ]; // Example positions
+    ];
 
     const mockMap = { fitBounds: jest.fn(), addTo: jest.fn() };
     useMap.mockReturnValue(mockMap);
